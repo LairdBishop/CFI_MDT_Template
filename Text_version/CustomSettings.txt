@@ -1,0 +1,35 @@
+[Settings]
+Priority=Default
+Properties=MyCustomProperty, CFI, CSWIN8
+
+[Default]
+OSInstall=Y
+SkipWizard=YES
+SkipApplications=YES
+SkipAppsOnUpgrade=YES
+SkipDeploymentType=YES
+   DeploymentType=NEWCOMPUTER
+SkipCapture=YES
+SkipAdminPassword=YES
+SkipProductKey=YES
+SkipDomainMembership=YES
+   JoinDomain=yourdomain.local
+   DomainAdmin=Deployment_Account
+   DomainAdminDomain=yourdomain
+   DomainAdminPassword=PASSWORD
+SkipUserData=YES
+UserDataLocation=NONE
+SkipTaskSequence=YES
+   TaskSequenceID=Your_TS_ID
+SkipComputerName=YES
+   OSDComputerName=Variable if used
+SkipPackageDisplay=YES
+SkipLocaleSelection=YES
+SkipTimeZone=YES
+SkipBitLocker=YES
+FinishAction=REBOOT
+SkipSummary=YES
+SkipFinalSummary=YES
+CSWIN8=FALSE
+CFI=TRUE
+SkipBDDWelcome=YES
