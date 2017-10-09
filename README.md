@@ -30,7 +30,7 @@ Once you place this file in [Deployment Share]\Templates folder, it will be avai
 The following line must appear in your Unattend.xml file to prevent an interactive scenario in the factory:
    `<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>`
 
-This text file gives context.  Modify the Unattend.xml in [Deployment Share]\Control\[Task Sequence] folder to include this value.
+This text file gives context.  Modify the Unattend.xml in [Deployment Share]\Control\`[Task Sequence] folder to include this value.
 
 ### [CustomSettings.ini](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/CustomSettings.ini) and [Bootstrap.ini](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/Bootstrap.ini)
 ***
