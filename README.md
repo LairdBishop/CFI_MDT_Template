@@ -34,6 +34,6 @@ This text file gives context.  Modify the Unattend.xml in `[Deployment Share]\Co
 
 ### [CustomSettings.ini](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/CustomSettings.ini) and [Bootstrap.ini](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/Bootstrap.ini)
 ***
-These files contain the entries shown on page 17 of the [user guide](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/Global%20Factory%20Imaging%20for%20MDT%202013%20user%20guide%20external_EN_1215.pdf. The values in these files must appear in the files associated with the media you will create to send to the factory, not the ones under your Control folder.  Having all of these values specified ensure a silent task sequence, which is required in the factory. Copy and paste any missing values to the rules file you associate with the generated media.
+These files contain the entries shown on page 17 of the [user guide](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/Global%20Factory%20Imaging%20for%20MDT%202013%20user%20guide%20external_EN_1215.pdf). The values in these files must appear in the files associated with the media you will create to send to the factory, not the ones under your Control folder.  Having all of these values specified ensure a silent task sequence, which is required in the factory. Copy and paste any missing values to the rules file you associate with the generated media.
 
  
