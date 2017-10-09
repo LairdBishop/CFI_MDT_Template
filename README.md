@@ -28,7 +28,7 @@ Once you place this file in [Deployment Share]\Templates folder, it will be avai
 ### [hidewirelessetupinoobe_x64.txt](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/hidewirelessetupinoobe_x64.txt)
 ***
 The following line must appear in your Unattend.xml file to prevent an interactive scenario in the factory:
-   '<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>'
+   `<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>`
 
 This text file gives context.  Modify the Unattend.xml in [Deployment Share]\Control\[Task Sequence] folder to include this value.
 
