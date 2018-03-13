@@ -2,6 +2,8 @@
 
 This repository contains everything you need to get started on a DellEMC factory enabled MDT project.  The information here pertains to an MDT "Standard Client Task Sequence" project which has "factory hooks" added to allow the majority of your task sequence to execute in the DellEMC factory, aka a "boot in factory" project.
 
+### NOTE: Be advised that the Dell EMC factory follows the [Microsoft MDT support cycle](https://support.microsoft.com/en-us/help/2872000/microsoft-deployment-toolkit-support-life-cycle).  MDT 8443 and older are based on the depricated TH1 OS Manifests.  Because this underlying technology is no longer supported, all CFI projects should be based on the MDT 8450 release.  Please take steps to update deployment shares and regenerate task sequences using the current templates prior to submitting an MDT CFI project.
+
 ## Essential documents (Mandatory)
 
 ### [Global Factory Imaging for MDT 2013 user guide external_EN_1215.pdf - the "User Guide" ](https://github.com/LairdBishop/CFI_MDT_Template/blob/master/Global%20Factory%20Imaging%20for%20MDT%202013%20user%20guide%20external_EN_1215.pdf)
