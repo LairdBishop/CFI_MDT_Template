@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<sequence version="3.00" name="Dell CFI Boot-In-Factory Task Sequence" description="The Standard Client Task Sequence template with the Dell CFI factory hooks integrated.">
+<sequence version="3.00" name="Dell CFI Boot-In-Factory Task Sequence" description="The Standard Client Task Sequence (MDT 8450)template with the Dell CFI factory hooks integrated.">
   <globalVarList>
-    <variable name="OSGUID" property="OSGUID">{e0ca1356-4eb3-44cc-98f7-ed504b2fb201}</variable>
+    <variable name="OSGUID" property="OSGUID">{6df9d3cc-2564-479f-a2aa-e8d58ad401b3}</variable>
     <variable name="DestinationDisk" property="DestinationDisk">0</variable>
     <variable name="DestinationPartition" property="DestinationPartition">1</variable>
     <variable name="DestinationOSVariable" property="DestinationOSVariable">OSDisk</variable>
     <variable name="DestinationOSRefresh" property="DestinationOSRefresh"></variable>
     <variable name="DestinationOSDriveLetter" property="DestinationOSDriveLetter"></variable>
     <variable name="DestinationOSInstallType" property="DestinationOSInstallType">ByVariable</variable>
-    <variable name="OSGUID" property="OSGUID">{e0ca1356-4eb3-44cc-98f7-ed504b2fb201}</variable>
+    <variable name="OSGUID" property="OSGUID">{6df9d3cc-2564-479f-a2aa-e8d58ad401b3}</variable>
   </globalVarList>
   <group name="Initialization" disable="false" continueOnError="false" description="Initialize the TS environment" expand="true">
     <step type="BDD_Gather" name="Gather local only" disable="false" continueOnError="false" successCodeList="0 3010" description="" startIn="">
@@ -29,7 +29,7 @@
       </condition>
       <step type="SMS_TaskSequence_RunCommandLineAction" name="Initialize CS" description="Initializes the Dell CFI factory process" disable="false" continueOnError="true" startIn="" successCodeList="0 3010" runIn="WinPEandFullOS">
         <defaultVarList>
-          <variable name="PackageID" property="PackageID"></variable>
+          <variable name="PackageID" property="PackageID" />
           <variable name="RunAsUser" property="RunAsUser">false</variable>
           <variable name="SMSTSRunCommandLineUserName" property="SMSTSRunCommandLineUserName"></variable>
           <variable name="SMSTSRunCommandLineUserPassword" property="SMSTSRunCommandLineUserPassword"></variable>
@@ -46,7 +46,7 @@
       </step>
     </group>
   </group>
-  <group name="Validation" disable="false" continueOnError="false" description="Test" expand="true">
+  <group name="Validation" disable="false" continueOnError="false" description="Test" expand="false">
     <condition>
       <operator type="or">
         <expression type="SMS_TaskSequence_VariableConditionExpression">
@@ -422,7 +422,7 @@
     </condition>
     <step type="BDD_InstallOS" name="Install Operating System" description="" disable="false" continueOnError="false" runIn="WinPEandFullOS" successCodeList="0 3010">
       <defaultVarList>
-        <variable name="OSGUID" property="OSGUID">{e0ca1356-4eb3-44cc-98f7-ed504b2fb201}</variable>
+        <variable name="OSGUID" property="OSGUID">{6df9d3cc-2564-479f-a2aa-e8d58ad401b3}</variable>
         <variable name="DestinationDisk" property="DestinationDisk">0</variable>
         <variable name="DestinationPartition" property="DestinationPartition">1</variable>
         <variable name="DestinationOSDriveLetter" property="DestinationOSDriveLetter"></variable>
@@ -434,7 +434,7 @@
     </step>
     <step type="SMS_TaskSequence_RunCommandLineAction" name="CS Apply Drivers" description="" disable="false" continueOnError="true" startIn="" successCodeList="0 3010" runIn="WinPEandFullOS">
       <defaultVarList>
-        <variable name="PackageID" property="PackageID"></variable>
+        <variable name="PackageID" property="PackageID" />
         <variable name="RunAsUser" property="RunAsUser">false</variable>
         <variable name="SMSTSRunCommandLineUserName" property="SMSTSRunCommandLineUserName"></variable>
         <variable name="SMSTSRunCommandLineUserPassword" property="SMSTSRunCommandLineUserPassword"></variable>
@@ -519,9 +519,9 @@
         <variable name="LoadProfile" property="LoadProfile">false</variable>
       </defaultVarList>
     </step>
-    <step type="SMS_TaskSequence_RunCommandLineAction" name="CS Start Desktop" description="This step is applicable only to Windows 8 and Windows 8.1.  It will run only in the factory, and requires the variable CSWin8=True in the CustomSettings.ini associated with the factory media.  See the User Guide for details." disable="false" continueOnError="true" startIn="" successCodeList="0 3010" runIn="WinPEandFullOS">
+    <step type="SMS_TaskSequence_RunCommandLineAction" name="CS Start Desktop" description="This step is applicable only to Windows 8 and Windows 8.1.  It will run only in the factory, and requires the variable CSWin8=True in the CustomSettings.ini associated with the factory media.  See the User Guide for details.   This step can be deleted for Windows 10" disable="false" continueOnError="true" startIn="" successCodeList="0 3010" runIn="WinPEandFullOS">
       <defaultVarList>
-        <variable name="PackageID" property="PackageID"></variable>
+        <variable name="PackageID" property="PackageID" />
         <variable name="RunAsUser" property="RunAsUser">false</variable>
         <variable name="SMSTSRunCommandLineUserName" property="SMSTSRunCommandLineUserName"></variable>
         <variable name="SMSTSRunCommandLineUserPassword" property="SMSTSRunCommandLineUserPassword"></variable>
@@ -689,7 +689,7 @@
         <variable name="LoadProfile" property="LoadProfile">false</variable>
       </defaultVarList>
     </step>
-    <group expand="true" name="Imaging" description="" disable="false" continueOnError="false">
+    <group expand="false" name="Imaging" description="" disable="false" continueOnError="false">
       <action />
       <group name="Prepare Only" disable="false" continueOnError="false" expand="false" description="">
         <condition>
@@ -817,15 +817,15 @@
       </condition>
       <step type="SMS_TaskSequence_RebootAction" name="Restart computer" description="" disable="false" continueOnError="false" runIn="WinPEandFullOS" successCodeList="0 3010">
         <defaultVarList>
-          <variable name="SMSRebootMessage" property="Message"></variable>
+          <variable name="SMSRebootMessage" property="Message" />
           <variable name="SMSRebootTimeout" property="MessageTimeout">60</variable>
-          <variable name="SMSRebootTarget" property="Target"></variable>
+          <variable name="SMSRebootTarget" property="Target" />
         </defaultVarList>
         <action>smsboot.exe /target:WinPE</action>
       </step>
       <step type="SMS_TaskSequence_RunCommandLineAction" name="Handoff to CS" description="" disable="false" continueOnError="true" startIn="" successCodeList="0 3010" runIn="WinPEandFullOS">
         <defaultVarList>
-          <variable name="PackageID" property="PackageID"></variable>
+          <variable name="PackageID" property="PackageID" />
           <variable name="RunAsUser" property="RunAsUser">false</variable>
           <variable name="SMSTSRunCommandLineUserName" property="SMSTSRunCommandLineUserName"></variable>
           <variable name="SMSTSRunCommandLineUserPassword" property="SMSTSRunCommandLineUserPassword"></variable>
@@ -846,7 +846,7 @@
       <action />
       <step type="SMS_TaskSequence_RunCommandLineAction" name="CS Cleanup" description="" disable="false" continueOnError="true" startIn="" successCodeList="0 3010" runIn="WinPEandFullOS">
         <defaultVarList>
-          <variable name="PackageID" property="PackageID"></variable>
+          <variable name="PackageID" property="PackageID" />
           <variable name="RunAsUser" property="RunAsUser">false</variable>
           <variable name="SMSTSRunCommandLineUserName" property="SMSTSRunCommandLineUserName"></variable>
           <variable name="SMSTSRunCommandLineUserPassword" property="SMSTSRunCommandLineUserPassword"></variable>
